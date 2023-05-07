@@ -1,4 +1,4 @@
-import { Module, ValidationPipe } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { FoodController } from './modules/food/controllers/food.controller';
@@ -9,7 +9,6 @@ import { OrderController } from './modules/orders/controllers/order.controller';
 import { FoodModule } from './modules/food/food.module';
 import { OrdersModule } from './modules/orders/order.module';
 import { StorageModule } from './modules/storage/storeage.modulet';
-import { APP_PIPE } from '@nestjs/core';
 import { AppGateway } from './app.gateway';
 
 @Module({

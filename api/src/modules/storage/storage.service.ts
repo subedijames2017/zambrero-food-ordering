@@ -11,6 +11,9 @@ export class StorageService {
   }
   // add order to an array
   addOrder(orders: OrdersDto[]) {
-    this.orderData = [...this.orderData, ...orders];
+    let newOrder = [...this.orderData, ...orders];
+    // store data in descending order based on name
+    newOrder.sort((a, b) => b.title.localeCompare(a.title));
+    this.orderData = newOrder;
   }
 }

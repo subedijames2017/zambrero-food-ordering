@@ -16,6 +16,7 @@ export function Order() {
   useEffect(() => {
     async function fetchFoods() {
       const data = await getOrders();
+      data.sort((a, b) => (a.title > b.title ? 1 : -1));
       setOrders(data);
     }
     fetchFoods();
