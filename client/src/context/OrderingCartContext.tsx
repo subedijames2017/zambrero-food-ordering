@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { OrderingCart } from "../components/OrderingCart";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { CartItem, CartItemFromProduct, SuccessMessage } from "../types";
+import { CartItem, CartItemFromProduct } from "../types";
 import { orderFood } from "../service";
 import { useNavigate } from "react-router-dom";
 import { LoadingSpinner } from "../components/Spinner";

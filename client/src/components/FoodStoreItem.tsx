@@ -2,8 +2,6 @@ import { Button, Card } from "react-bootstrap";
 import { useOrderingCart } from "../context/OrderingCartContext";
 import { formatCurrency } from "../healper/formatCurrency";
 import { FoodStoreItemProps } from "../types";
-import { useEffect, useState } from "react";
-import { getFoods } from "../service";
 
 export function FoodStoreItem(foodItem: FoodStoreItemProps) {
   const { productId, title, retailPrice, imageUrl, description } = foodItem;

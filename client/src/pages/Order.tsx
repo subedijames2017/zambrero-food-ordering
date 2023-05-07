@@ -10,7 +10,7 @@ export function Order() {
   const [orders, setOrders] = useState<CartItem[]>([]);
 
   const socket = io(API_BASE_URL, {
-    transports: ["websocket", "polling", "flashsocket"],
+    transports: ["websocket"],
   });
 
   useEffect(() => {
@@ -19,6 +19,10 @@ export function Order() {
       setOrders(data);
     }
     fetchFoods();
+  }, []);
+
+  useEffect(() => {
+    // created an independent instance for socket connection
     socket.on("connection", (message: string) => {
       console.log(message);
     });
