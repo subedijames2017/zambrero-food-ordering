@@ -109,8 +109,9 @@ export function OrderingCartProvider({ children }: OrderingCartProviderProps) {
       }
     } catch (error: any) {
       // TODO implement proper error snsckbar
-      setLoading(true);
-      alert(error.message);
+      setLoading(false);
+      // TODO proper implementation of error later.
+      alert(error.response.data.message);
     }
   }
 

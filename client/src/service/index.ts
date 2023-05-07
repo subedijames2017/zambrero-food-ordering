@@ -8,7 +8,7 @@ export async function getFoods(): Promise<FoodStoreItemProps[]> {
     return response.data;
   } catch (error) {
     console.error(error);
-    return [];
+    throw error;
   }
 }
 
@@ -20,7 +20,7 @@ export async function orderFood(
     return response.data;
   } catch (error) {
     console.error(error);
-    return [];
+    throw error;
   }
 }
 
@@ -30,6 +30,6 @@ export async function getOrders(): Promise<CartItem[]> {
     return response.data;
   } catch (error) {
     console.error(error);
-    return [];
+    throw error;
   }
 }

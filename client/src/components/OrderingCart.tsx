@@ -74,7 +74,9 @@ export function OrderingCart({ isOpen }: OrderingCartProps) {
           Place Order
         </Button>
       ) : (
-        <span>Ordering allowed between between 10am-10pm AEST </span>
+        <div className="m-4">
+          Ordering allowed between between 10am-10pm AEST{" "}
+        </div>
       )}
     </Offcanvas>
   );
