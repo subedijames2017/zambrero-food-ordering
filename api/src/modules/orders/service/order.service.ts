@@ -10,12 +10,9 @@ export class OrderService {
     try {
       // TODO implementation of payment service
 
-      this.storageService.addOrder(orders);
-      console.log(
-        '🚀 ~ file: order.service.ts:11 ~ OrderService ~ orderFoods ~ orders:',
-        this.storageService.getOrders(),
-      );
+      // to avoid unnecessery data injection only adding necessery data.
 
+      this.storageService.addOrder(orders);
       return {
         success: true,
         message: 'Order Created Sucessfully',

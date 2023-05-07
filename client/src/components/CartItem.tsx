@@ -1,14 +1,13 @@
-import { Button, Stack } from "react-bootstrap"
-import { useOrderingCart } from "../context/OrderingCartContext"
-import storeItems from "../data/products.json"
-import { formatCurrency } from "../healper/formatCurrency"
-import { CartItemProps } from "../types"
+import { Button, Stack } from "react-bootstrap";
+import { useOrderingCart } from "../context/OrderingCartContext";
+import storeItems from "../data/products.json";
+import { formatCurrency } from "../healper/formatCurrency";
+import { CartItemProps } from "../types";
 
-
-export function CartItem({ id, quantity }: CartItemProps) {
-  const { removeFromCart } = useOrderingCart()
-  const item = storeItems.find(i => i.productId === id)
-  if (item == null) return null
+export function CartItem({ productId, quantity }: CartItemProps) {
+  const { removeFromCart } = useOrderingCart();
+  const item = storeItems.find((i) => i.productId === productId);
+  if (item == null) return null;
 
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
@@ -39,5 +38,5 @@ export function CartItem({ id, quantity }: CartItemProps) {
         &times;
       </Button>
     </Stack>
-  )
+  );
 }
