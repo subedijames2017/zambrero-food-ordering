@@ -2,11 +2,16 @@ import { Col, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { getOrders } from "../service";
 import { CartItem } from "../types";
-import { LoadingSpinner } from "../components/Spinner";
 import { OrderItems } from "../components/OrderItem";
+import io from "socket.io-client";
+import { API_BASE_URL } from "../config";
 
 export function Order() {
   const [orders, setOrders] = useState<CartItem[]>([]);
+
+  const socket = io(API_BASE_URL, {
+    transports: ["websocket", "polling", "flashsocket"],
+  });
 
   useEffect(() => {
     async function fetchFoods() {
@@ -14,6 +19,17 @@ export function Order() {
       setOrders(data);
     }
     fetchFoods();
+    socket.on("connection", (message: string) => {
+      console.log(message);
+    });
+    socket.on("message", (payload: any) => {
+      console.log("Received message:", payload);
+    });
+    // Request server for new orders when user create order and goes to order page
+    socket.emit("UpateNewOrders");
+    socket.on("UpdateNewOrderToClient", (payload: CartItem[]) => {
+      setOrders(payload);
+    });
   }, []);
 
   return (

@@ -10,10 +10,17 @@ import { FoodModule } from './modules/food/food.module';
 import { OrdersModule } from './modules/orders/order.module';
 import { StorageModule } from './modules/storage/storeage.modulet';
 import { APP_PIPE } from '@nestjs/core';
+import { AppGateway } from './app.gateway';
 
 @Module({
   imports: [FoodModule, OrdersModule, StorageModule],
   controllers: [AppController, FoodController, OrderController],
-  providers: [StorageService, AppService, FoodService, OrderService],
+  providers: [
+    StorageService,
+    AppService,
+    FoodService,
+    OrderService,
+    AppGateway,
+  ],
 })
 export class AppModule {}
